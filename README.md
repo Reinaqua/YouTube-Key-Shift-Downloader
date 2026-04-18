@@ -12,7 +12,7 @@
 請完全不需要理會本頁面的程式碼！
 1. 點擊頁面右側的 **[Releases]**。
 2. 下載最新的 `.zip` 壓縮檔。
-3. **解壓縮後，保持 `.exe` 與 `ffmpeg.exe` 在同一個資料夾內，直接點擊 `.exe` 即可執行。**
+3. **解壓縮後，保持 `ytdownloader.exe` 與 `ffmpeg.exe` 在同一個資料夾內，直接點擊 `ytdownloader.exe` 即可執行。**
 
 ## 💻 開發者源碼執行
 1. 安裝依賴：`pip install -r requirements.txt`
