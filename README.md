@@ -9,7 +9,7 @@
 * 琉璃藍極簡風 UI
 * **已內建 FFmpeg ，完全免安裝環境！**
 ### audio replacer
-* 用Ultimate Vocal Remover 分離出的純伴奏檔替換掉含有卡拉OK字幕的on vocal影片檔
+* 用Ultimate Vocal Remover 分離出的純伴奏檔替換掉含有卡拉OK字幕的on vocal影片檔的音軌
 * 支援 -6 到 +6 Key 調整。
 * 琉璃藍極簡風 UI
 ## 🚀 一般使用者下載與執行方式 
