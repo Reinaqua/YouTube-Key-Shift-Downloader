@@ -124,7 +124,9 @@ def download_video():
 
                 shifted_mp4 = f"{base_name}_{key_shift:+}Key.mp4"
                 freq_ratio = 2 ** (key_shift / 12.0)
-                pitch_filter = f"rubberband=pitch={freq_ratio:.7f}:transients=smooth:phase=laminar:window=long"
+                
+                # 修改點：加入 formants=preserve 共振峰保護，專門針對 On-Vocal 人聲
+                pitch_filter = f"rubberband=pitch={freq_ratio:.7f}:transients=smooth:phase=laminar:window=long:formants=preserve"
 
                 ffmpeg_cmd = [
                     'ffmpeg', '-y', '-i', final_mp4,
@@ -178,18 +180,17 @@ def open_folder(folder_path):
 
 # ================= UI 介面設計 =================
 root = tk.Tk()
-root.title("YT 卡拉OK 下載器")
+root.title("YT 卡拉OK 下載器 (On-Vocal 專用版)")
 root.geometry("520x380")
 root.resizable(False, False) 
 root.configure(bg=BG_COLOR)
 
-# ================= 新增：綁定視窗與工作列圖示 =================
+# ================= 綁定視窗與工作列圖示 =================
 try:
-    # 呼叫 resource_path 來找圖示，這樣打包後才不會報錯
     icon_path = resource_path("app_icon.ico")
     root.iconbitmap(icon_path)
 except Exception:
-    pass # 若找不到圖示則忽略，避免程式崩潰
+    pass 
 # ==========================================================
 
 style = ttk.Style()
@@ -229,5 +230,7 @@ progress_bar.pack(fill=tk.X, pady=(10, 5))
 
 progress_label = ttk.Label(main_frame, text="等待輸入...", font=("微軟正黑體", 10))
 progress_label.pack()
+
+tk.Label(main_frame, text="※ 具備人聲共振峰保護，變調不失真", font=("微軟正黑體", 9), bg=BG_COLOR, fg="#888888").pack(pady=(5,0))
 
 root.mainloop()
