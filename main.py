@@ -126,7 +126,7 @@ def download_video():
                 freq_ratio = 2 ** (key_shift / 12.0)
                 
                 # 修改點：加入 formants=preserve 共振峰保護，專門針對 On-Vocal 人聲
-                pitch_filter = f"rubberband=pitch={freq_ratio:.7f}:transients=smooth:phase=laminar:window=long:formants=preserve"
+                pitch_filter = f"rubberband=pitch={freq_ratio:.7f}:transients=smooth:phase=laminar:window=long:formant=preserved"
 
                 ffmpeg_cmd = [
                     'ffmpeg', '-y', '-i', final_mp4,
